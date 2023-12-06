@@ -2,14 +2,14 @@
   <?php
 
   // if Addbook is pressed
-  if (isset($_POST["addBook"])) {
+  if(isset($_POST["addBook"])) {
     // path for image storage
-    $target = "Images/" . basename($_FILES['bookImage']['name']);
+    $target = "Images/".basename($_FILES['bookImage']['name']);
 
     // connect to database
     $link = mysqli_connect('localhost', 'root', '', 'cse309_final_project');
-    if ($link === false) {
-      die('Error establishing connection' . mysqli_connect_error());
+    if($link === false) {
+      die('Error establishing connection'.mysqli_connect_error());
     }
 
     // variables to catch input data
@@ -46,6 +46,8 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/@jarstone/dselect/dist/css/dselect.css">
+
 
   <style>
     .bd-placeholder-img {
@@ -165,28 +167,29 @@
 
             <!-- Add Words Box -->
             <div class="col-lg-3 col-md-12"
-              style="background-color: #FAEED1; border-radius: 10px; margin: 20px; padding: 10px;">
+              style="background-color: #9EC8B9; border-radius: 10px; margin: 20px; padding: 10px;">
               <h2 style="text-align: center;">Add Words</h2>
 
               <div class="form-floating mb-3 px-5">
                 <form action="admin.php" method="post">
 
                   <div>
-                    <label class="form-label mt-3">Book name</label>
+                    <label class="form-label mt-3">Book ISBN</label>
 
                     <div>
-                      <select class="form-select" name="addWord">
+                      <!-- select the ISBN of the book -->
+                      <select class="form-select" name="addWord" id="search">
                         <?php
-                        // connect to db and fetch the results
+                        // connect to db and fetch the ISBN
                         $link = mysqli_connect('localhost', 'root', '', 'cse309_final_project');
                         $queryFetchBook = "SELECT * FROM `book`";
                         $result = mysqli_query($link, $queryFetchBook); ?>
 
                         <!-- showing the database data in select menu -->
-                        <?php while ($row1 = mysqli_fetch_array($result)):
+                        <?php while($row = mysqli_fetch_array($result)):
                           ; ?>
                           <option>
-                            <?php echo $row1[1]; ?>
+                            <?php echo $row[0]; ?>
                           </option>
                         <?php endwhile; ?>
                       </select>
@@ -198,15 +201,17 @@
 
                     <div>
                       <?php
-                      if (isset($_POST["addWord"])) {
+                      if(isset($_POST["addWord"])) {
 
                         // variables to store book and the word
                         $book = $_POST['addWord'];
                         $word = $_POST['bookWord'];
 
-                        // connect and senddata
+                        // connect and send data
                         $link = mysqli_connect('localhost', 'root', '', 'cse309_final_project');
                         $queryAddWord = "INSERT INTO `word`(`bookIsbn`, `wordName`) VALUES ('$book','$word')";
+                        mysqli_query($link, $queryAddWord);
+                        mysqli_close($link);
                       }
 
                       ?>
@@ -240,10 +245,10 @@
                       $result = mysqli_query($link, $queryFetchBook); ?>
 
                       <!-- showing the database data in select menu -->
-                      <?php while ($row1 = mysqli_fetch_array($result)):
+                      <?php while($row = mysqli_fetch_array($result)):
                         ; ?>
                         <option>
-                          <?php echo $row1[1]; ?>
+                          <?php echo $row[0]; ?>
                         </option>
                       <?php endwhile; ?>
                     </select>
@@ -252,13 +257,13 @@
                   <div class="row-cols-2 text-center mt-4">
                     <div>
                       <?php
-                      if (isset($_POST['delBook'])) {
+                      if(isset($_POST['delBook'])) {
                         // Get the selected book from the form
                         $delBook = $_POST['delBook'];
                         $link = mysqli_connect('localhost', 'root', '', 'cse309_final_project');
 
                         // delete query
-                        $queryDeleteBook = "DELETE FROM `book` WHERE `Name` = '$delBook'";
+                        $queryDeleteBook = "DELETE FROM `book` WHERE `Isbn` = '$delBook'";
                         $result = mysqli_query($link, $queryDeleteBook);
                         mysqli_close($link);
                       }
@@ -283,10 +288,21 @@
   <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
     integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
     crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
-    integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
-    crossorigin="anonymous"></script>
-  <script src="dashboard.js"></script>
+  <script src="https://unpkg.com/@jarstone/dselect/dist/js/dselect.js"></script>
+
+  <script>
+    dselect(document.querySelector('#search'), {
+      search: true
+    })
+  </script>
+
+  <script>
+      (function () {
+        'use strict'
+
+        feather.replace({ 'aria-hidden': 'true' })
+      })()
+  </script>
 </body>
 
 </html>
