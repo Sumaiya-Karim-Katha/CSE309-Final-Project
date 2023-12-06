@@ -178,7 +178,7 @@
 
                     <div>
                       <!-- select the ISBN of the book -->
-                      <select class="form-select" name="addWord" id="search">
+                      <select class="form-select" name="addWord" id="searchAddWord">
                         <?php
                         // connect to db and fetch the ISBN
                         $link = mysqli_connect('localhost', 'root', '', 'cse309_final_project');
@@ -237,7 +237,7 @@
                   <label class="form-label mt-3">Book name</label>
 
                   <div>
-                    <select class="form-select" name="delBook">
+                    <select class="form-select" name="delBook" id="searchDelBook">
                       <?php
                       // connect to db and fetch the results
                       $link = mysqli_connect('localhost', 'root', '', 'cse309_final_project');
@@ -291,7 +291,11 @@
   <script src="https://unpkg.com/@jarstone/dselect/dist/js/dselect.js"></script>
 
   <script>
-    dselect(document.querySelector('#search'), {
+    dselect(document.querySelector('#searchAddWord'), {
+      search: true
+    })
+
+    dselect(document.querySelector('#searchDelBook'), {
       search: true
     })
   </script>
