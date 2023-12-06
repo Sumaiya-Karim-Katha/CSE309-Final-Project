@@ -36,6 +36,7 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/@jarstone/dselect/dist/css/dselect.css">
 
+  <link href="CSS/dashboard.css" rel="stylesheet">
 
   <style>
     .bd-placeholder-img {
@@ -52,17 +53,13 @@
       }
     }
   </style>
-
-
-  <!-- Custom styles for this template -->
-  <link href="dashboard.css" rel="stylesheet">
 </head>
 
 <body>
 
-  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-1 shadow">
 
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">BookStore Desu</a>
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Vocable Admin</a>
 
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
       data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,19 +70,22 @@
   <div class="container-fluid">
     <div class="row">
 
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse mt-3">
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">
-                <span data-feather="home"></span>
-                Dashboard
+
+                <span class="d-flex align-items-center"> <img src="SVG/home.svg" alt="">
+                  <span style="font-size: 20px; margin-left: 10px;">Dashboard</span>
+                </span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="adminManageBook.php">
-                <span data-feather="book"></span>
-                Manage Book
+                <span class="d-flex align-items-center"> <img src="SVG/book.svg" alt="">
+                  <span style="font-size: 20px; margin-left: 10px;">Manage Books</span>
+                </span>
               </a>
             </li>
           </ul>
@@ -93,52 +93,49 @@
           <ul class="nav flex-column mb-2">
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <span data-feather="log-out"></span>
-                Sign Out
+                <span class="d-flex align-items-center"> <img src="SVG/log-out.svg" alt="">
+                  <span style="font-size: 20px; margin-left: 10px;">Logout</span>
+                </span>
               </a>
             </li>
         </div>
       </nav>
 
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-4 mt-4">
 
-        <div class="container-fluid"
-          style="background-color: #F0ECE5; margin: 10px; padding: 10px; border-radius: 10px; text-align: center;">
+        <div style="background-color: #F0ECE5; margin: 10px; padding: 10px; border-radius: 10px; text-align: center;">
 
-          <h2>Analytics</h2>
+          <h2 class="container py-3">Analytics</h2>
 
           <div class="row">
             <!-- analytics -->
-            <div class="col-lg-2 col-sm-12"
+            <div class="col-lg-3 col-sm-12 mx-auto"
               style="background-color: #9EC8B9; border-radius: 10px; margin: 20px; padding: 10px;">
-              <h2 style="text-align: center;">Total Users </h2>
-              <span data-feather="user"></span>
+              
+              <h2 style="text-align: center;">Total Users <span><img src="SVG/user.svg" alt=""></span> </h2>
               <h3>3
                 <!-- <?php
-                echo '<h4>'.$totalBook.'</h4>';
+                echo '<h3>'.$totalBook.'</h3>';
                 ?>
               </h3> -->
             </div>
 
-            <div class="col-lg-2 col-sm-12"
+            <div class="col-lg-3 col-sm-12 mx-auto"
               style="background-color: #9EC8B9; border-radius: 10px; margin: 20px; padding: 10px;">
-              <h2 style="text-align: center;">Total Books</h2>
-              <span data-feather="book"></span>
-
+              <h2 style="text-align: center;">Total Books <span><img src="SVG/bookbig.svg" alt=""></h2>
               <h3>
                 <?php
-                echo '<h4>'.$totalBook.'</h4>';
+                echo '<h3>'.$totalBook.'</h3>';
                 ?>
               </h3>
             </div>
 
-            <div class="col-lg-2 col-sm-12"
+            <div class="col-lg-3 col-sm-12 mx-auto"
               style="background-color: #9EC8B9; border-radius: 10px; margin: 20px; padding: 10px;">
-              <h2 style="text-align: center;">Total Words</h2>
-              <span data-feather="book-open"></span>
+              <h2 style="text-align: center;">Total Words <span><img src="SVG/book-open.svg" alt=""></h2>
               <h3>
                 <?php
-                echo '<h4>'.$totalWord.'</h4>';
+                echo '<h3>'.$totalWord.'</h3>';
                 ?>
               </h3>
             </div>
@@ -147,7 +144,7 @@
         <hr>
         <div style="background-color: #F0ECE5; margin: 10px; padding: 10px; border-radius: 10px; text-align: center;">
 
-          <h2>User Feedback</h2>
+          <h2 class="container py-3">User Feedback</h2>
           <table class="table table-success table-striped">
             <thead style="font-size: 20px">
               <tr style="">
@@ -195,11 +192,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
-    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
-    crossorigin="anonymous"></script>
-
+  <script src="https://unpkg.com/feather-icons"></script>
   <script src="https://unpkg.com/@jarstone/dselect/dist/js/dselect.js"></script>
 
   <script>

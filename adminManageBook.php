@@ -15,12 +15,13 @@
     // variables to catch input data
     $isbn = $_POST['bookISBN'];
     $bookname = $_POST['bookName'];
+    $booknamesafe = mysqli_real_escape_string($link, $bookname);
     $bookauthor = $_POST['bookAuthor'];
     $bookgenre = filter_input(INPUT_POST, 'bookGenre', FILTER_SANITIZE_STRING);
     $bookimage = $_FILES['bookImage']['name'];
 
     // sql query
-    $queryAddBook = "INSERT INTO `book`(`Isbn`, `Name`, `Author`, `Genre`, `Image`) VALUES ('$isbn','$bookname','$bookauthor','$bookgenre','$bookimage')";
+    $queryAddBook = "INSERT INTO `book`(`Isbn`, `Name`, `Author`, `Genre`, `Image`) VALUES ('$isbn','$booknamesafe','$bookauthor','$bookgenre','$bookimage')";
 
     // sending data by linking query and the database
     mysqli_query($link, $queryAddBook);
@@ -47,6 +48,7 @@
 
   <link rel="stylesheet" href="https://unpkg.com/@jarstone/dselect/dist/css/dselect.css">
 
+  <link href="CSS/dashboard.css" rel="stylesheet">
 
   <style>
     .bd-placeholder-img {
@@ -63,17 +65,13 @@
       }
     }
   </style>
-
-
-  <!-- Custom styles for this template -->
-  <link href="CSS/dashboard.css" rel="stylesheet">
 </head>
 
 <body>
 
-  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-1 shadow">
 
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">BookStore Desu</a>
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Vocable Admin</a>
 
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
       data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,19 +82,21 @@
   <div class="container-fluid">
     <div class="row">
 
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse mt-3">
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
               <a class="nav-link" href="adminDashboard.php">
-                <span data-feather="home"></span>
-                Dashboard
+                <span class="d-flex align-items-center"> <img src="SVG/home.svg" alt="">
+                  <span style="font-size: 20px; margin-left: 10px;">Dashboard</span>
+                </span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active"  aria-current="page" href="#">
-                <span data-feather="book"></span>
-                Manage Book
+              <a class="nav-link active" aria-current="page" href="#">
+                <span class="d-flex align-items-center"> <img src="SVG/book.svg" alt="">
+                  <span style="font-size: 20px; margin-left: 10px;">Manage Books</span>
+                </span>
               </a>
             </li>
           </ul>
@@ -104,23 +104,23 @@
           <ul class="nav flex-column mb-2">
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <span data-feather="log-out"></span>
-                Sign Out
+                <span class="d-flex align-items-center"> <img src="SVG/log-out.svg" alt="">
+                  <span style="font-size: 20px; margin-left: 10px;">Logout</span>
+                </span>
               </a>
             </li>
         </div>
       </nav>
 
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div class="container-fluid"
-          style="background-color: #F0ECE5; margin: 10px; padding: 10px; border-radius: 10px; text-align: center;">
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-4">
+        <div style="background-color: #F0ECE5; margin: 10px; padding: 10px; border-radius: 10px; text-align: center;">
 
-          <h2>Welcome <span id="WelcomeUsername">"Admin"</span></h2>
+          <h2>Add/Delete Books</h2>
 
           <div class="row">
             <!-- Add books box -->
-            <div class="col-lg-4 col-md-12"
-              style="background-color: #FAEED1; border-radius: 10px; margin: 20px; padding: 10px;">
+            <div class="col-lg-3 col-md-12 mx-auto"
+              style="background-color: #9EC8B9; border-radius: 10px; margin: 20px; padding: 10px;">
 
               <h2 style="text-align: center;">Add Books</h2>
 
@@ -151,12 +151,12 @@
                     <label class="form-label mt-3">Genre</label>
                     <select name="bookGenre" id="bookGenre" class="form-select">
                       <option selected></option>
-                      <option value="action">Action</option>
+                      <option value="classics">Classics</option>
                       <option value="mystery">Mystery</option>
                       <option value="horror">Horror</option>
                       <option value="fantasy">Fantasy</option>
                       <option value="sci-fi">Sci-fi</option>
-                      <option value="novel">Novel</option>
+                      <option value="romance">Romance</option>
                     </select>
                   </div>
 
@@ -168,7 +168,7 @@
             </div>
 
             <!-- Add Words Box -->
-            <div class="col-lg-4 col-md-12"
+            <div class="col-lg-3 col-md-12 mx-auto"
               style="background-color: #9EC8B9; border-radius: 10px; margin: 20px; padding: 10px;">
               <h2 style="text-align: center;">Add Words</h2>
 
@@ -181,6 +181,7 @@
                     <div>
                       <!-- select the ISBN of the book -->
                       <select class="form-select" name="addWord" id="searchAddWord">
+                        <option value="...">...</option>
                         <?php
                         // connect to db and fetch the ISBN
                         $link = mysqli_connect('localhost', 'root', '', 'cse309_final_project');
@@ -227,8 +228,8 @@
             </div>
 
             <!-- Delete Book Box -->
-            <div class="col-lg-3 col-md-12"
-              style="background-color: #FAEED1; border-radius: 10px; margin: 20px; padding: 10px;">
+            <div class="col-lg-3 col-md-12 mx-auto"
+              style="background-color: #9EC8B9; border-radius: 10px; margin: 20px; padding: 10px;">
               <h2 style="text-align: center;">Delete Books</h2>
 
               <div class="form-floating mb-3 px-5">
@@ -239,6 +240,7 @@
 
                     <div>
                       <select class="form-select" name="delBook" id="searchDelBook">
+                        <option value="...">...</option>
                         <?php
                         // connect to db and fetch the results
                         $link = mysqli_connect('localhost', 'root', '', 'cse309_final_project');
@@ -286,10 +288,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
-    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
-    crossorigin="anonymous"></script>
+    
   <script src="https://unpkg.com/@jarstone/dselect/dist/js/dselect.js"></script>
 
   <script>

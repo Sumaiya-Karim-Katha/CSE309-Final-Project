@@ -3,26 +3,22 @@ body {
 }
 
 .feather {
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   vertical-align: text-bottom;
 }
 
 /*
  * Sidebar
  */
-
+ 
 .sidebar {
   position: fixed;
   top: 0;
-  /* rtl:raw:
-  right: 0;
-  */
   bottom: 0;
-  /* rtl:remove */
   left: 0;
   z-index: 100; /* Behind the navbar */
-  padding: 48px 0 0; /* Height of navbar */
+  padding: 70px 0 0; /* Height of navbar */
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
 
@@ -80,12 +76,6 @@ body {
 .navbar .navbar-toggler {
   top: .25rem;
   right: 1rem;
-}
-
-.navbar .form-control {
-  padding: .75rem 1rem;
-  border-width: 0;
-  border-radius: 0;
 }
 
 .form-control-dark {
