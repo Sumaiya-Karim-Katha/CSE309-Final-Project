@@ -1,40 +1,3 @@
-<div class="container">
-  <?php
-
-  // if Addbook is pressed
-  if(isset($_POST["addBook"])) {
-    // path for image storage
-    $target = "Images/".basename($_FILES['bookImage']['name']);
-
-    // connect to database
-    $link = mysqli_connect('localhost', 'root', '', 'cse309_final_project');
-    if($link === false) {
-      die('Error establishing connection'.mysqli_connect_error());
-    }
-
-    // variables to catch input data
-    $isbn = $_POST['bookISBN'];
-    $bookname = $_POST['bookName'];
-    $booknamesafe = mysqli_real_escape_string($link, $bookname);
-    $bookauthor = $_POST['bookAuthor'];
-    $bookgenre = filter_input(INPUT_POST, 'bookGenre', FILTER_SANITIZE_STRING);
-    $bookimage = $_FILES['bookImage']['name'];
-
-    // sql query
-    $queryAddBook = "INSERT INTO `book`(`Isbn`, `Name`, `Author`, `Genre`, `Image`) VALUES ('$isbn','$booknamesafe','$bookauthor','$bookgenre','$bookimage')";
-
-    // sending data by linking query and the database
-    mysqli_query($link, $queryAddBook);
-
-    // move added images to Images folder
-    move_uploaded_file($_FILES["bookImage"]["tmp_name"], $target);
-
-    // close connection to db
-    mysqli_close($link);
-  }
-  ?>
-</div>
-
 <!doctype html>
 <html lang="en">
 
@@ -125,7 +88,7 @@
               <h2 style="text-align: center;">Add Books</h2>
 
               <div class="form-floating mb-3 px-5">
-                <form action="adminManageBook.php" method="post" enctype="multipart/form-data">
+                <form action="PHP/addBook.php" method="post" enctype="multipart/form-data">
 
                   <div>
                     <label class="form-label mt-3">ISBN</label>
@@ -161,7 +124,7 @@
                   </div>
 
                   <div class="row-cols-2 text-center mt-4">
-                    <input class="btn btn-lg btn-success" type="submit" name="addBook" value="Add Book">
+                    <input class="btn btn-lg btn-success" type="submit" name="addBook" value="Add">
                   </div>
                 </form>
               </div>
@@ -173,54 +136,33 @@
               <h2 style="text-align: center;">Add Words</h2>
 
               <div class="form-floating mb-3 px-5">
-                <form action="adminManageBook.php" method="post">
+                <form action="PHP/addWord.php" method="post">
 
                   <div>
                     <label class="form-label mt-3">Book ISBN</label>
 
                     <div>
                       <!-- select the ISBN of the book -->
-                      <select class="form-select" name="addWord" id="searchAddWord">
+                      <select class="form-select" name="selectedBook" id="searchAddWord">
                         <option value="...">...</option>
-                        <?php
-                        // connect to db and fetch the ISBN
-                        $link = mysqli_connect('localhost', 'root', '', 'cse309_final_project');
-                        $queryFetchBook = "SELECT * FROM `book`";
-                        $result = mysqli_query($link, $queryFetchBook); ?>
+                        <?php include 'PHP/fetchBook.php'; ?>
 
                         <!-- showing the database data in select menu -->
-                        <?php while($row = mysqli_fetch_array($result)):
+                        <?php while ($row = mysqli_fetch_array($result)):
                           ; ?>
                           <option>
                             <?php echo $row[0]; ?>
                           </option>
                         <?php endwhile; ?>
+
                       </select>
                     </div>
 
                     <label class="form-label mt-3">Words</label>
                     <input type="text" name="bookWord" class="form-control">
 
-
-                    <div>
-                      <?php
-                      if(isset($_POST["addWord"])) {
-
-                        // variables to store book and the word
-                        $book = $_POST['addWord'];
-                        $word = $_POST['bookWord'];
-
-                        // connect and send data
-                        $link = mysqli_connect('localhost', 'root', '', 'cse309_final_project');
-                        $queryAddWord = "INSERT INTO `word`(`bookIsbn`, `wordName`) VALUES ('$book','$word')";
-                        mysqli_query($link, $queryAddWord);
-                        mysqli_close($link);
-                      }
-
-                      ?>
-                    </div>
                     <div class="row-cols-2 text-center mt-4">
-                      <input class="btn btn-lg btn-success" type="submit" value="Add">
+                      <input class="btn btn-lg btn-success" type="submit" name="addWord" value="Add">
                     </div>
                   </div>
                 </form>
@@ -233,22 +175,18 @@
               <h2 style="text-align: center;">Delete Books</h2>
 
               <div class="form-floating mb-3 px-5">
-                <form action="adminManageBook.php" method="post">
+                <form action="PHP/deleteBook.php" method="post">
 
                   <div>
                     <label class="form-label mt-3">Book name</label>
 
                     <div>
-                      <select class="form-select" name="delBook" id="searchDelBook">
+                      <select class="form-select" name="selectedBook" id="searchDelBook">
                         <option value="...">...</option>
-                        <?php
-                        // connect to db and fetch the results
-                        $link = mysqli_connect('localhost', 'root', '', 'cse309_final_project');
-                        $queryFetchBook = "SELECT * FROM `book`";
-                        $result = mysqli_query($link, $queryFetchBook); ?>
 
+                        <?php include 'PHP/fetchBook.php'; ?>
                         <!-- showing the database data in select menu -->
-                        <?php while($row = mysqli_fetch_array($result)):
+                        <?php while ($row = mysqli_fetch_array($result)):
                           ; ?>
                           <option>
                             <?php echo $row[0]; ?>
@@ -258,22 +196,7 @@
                     </div>
 
                     <div class="row-cols-2 text-center mt-4">
-                      <div>
-                        <?php
-                        if(isset($_POST['delBook'])) {
-                          // Get the selected book from the form
-                          $delBook = $_POST['delBook'];
-                          $link = mysqli_connect('localhost', 'root', '', 'cse309_final_project');
-
-                          // delete query
-                          $queryDeleteBook = "DELETE FROM `book` WHERE `Isbn` = '$delBook'";
-                          $result = mysqli_query($link, $queryDeleteBook);
-                          mysqli_close($link);
-                        }
-                        ?>
-
-                      </div>
-                      <input class="btn btn-lg btn-danger" type="submit" value="Delete">
+                      <input class="btn btn-lg btn-danger" type="submit" name="delBook" value="Delete">
                     </div>
                 </form>
               </div>
@@ -288,7 +211,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
-    
+
   <script src="https://unpkg.com/@jarstone/dselect/dist/js/dselect.js"></script>
 
   <script>
