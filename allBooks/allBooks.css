@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  /* background-color: #6B808B; */
+}
+
+.navbar {
+  width: 100%;
+  height: 60px;
+  background-color: #89b9ad;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+  height: 100%;
+  color: white;
+  font-family: "Sen", sans-serif;
+}
+
+.logo-container {
+  flex: 1;
+}
+
+.logo {
+  font-size: 30px;
+  color: #55656e;
+}
+
+.menu-container {
+  flex: 6;
+}
+
+.menu-list {
+  display: flex;
+  list-style: none;
+}
+
+.menu-list-item {
+  margin-right: 30px;
+}
+
+.menu-list-item.active {
+  font-weight: bold;
+}
+
+/* ... (previous styles) ... */
+
+/* Search container styles */
+.search-container {
+  flex: 1; /* Adjust the flex value to allocate space */
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.search-button {
+  background-color: #55656e; /* Match the color of your other buttons */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.profile-container {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.profile-text-container {
+  margin: 0 20px;
+}
+
+.profile-text-container {
+  position: relative;
+  
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  display: none;
+}
+
+.profile-text-container:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.dropdown-menu a:hover {
+  background-color: pink; /* Updated to pink on hover */
+  color: #fff; /* Text color on hover */
+}
+
+.profile-picture {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 10px;
+}
+
+.sidebar {
+  width: 50px;
+  height: 100%;
+  background-color: #89b9ad;
+  position: fixed;
+  top: 0;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* padding-top: 60px; */
+}
+
+.container {
+  background-color: #6b808b;
+  min-height: calc(100vh - 50px);
+  color: white;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.content-container {
+  margin-left: 280px;
+}
+
+.featured-content {
+  height: 50vh;
+  padding: 50px;
+  background-color: tomato;
+}
+
+.featured-title {
+  width: 350px;
+}
+
+.featured-button {
+  background-color: pink;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-weight: bold;
+}
+
+.book-list-container {
+  position: relative;
+  padding: 20px;
+}
+
+.book-list-wrapper {
+  position: relative; 
+  overflow: hidden;
+}
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: -15px; /* Negative margin to counteract the margin on book-list-item */
+}
+
+.book-list-item {
+  margin: 15px;
+  width: calc(33.33% - 30px); /* 33.33% width with margin on both sides */
+  position: relative;
+}
+
+.book-list-container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.book-list-item:hover .book-list-item-img {
+  transform: scale(1.2);
+  margin: 0 30px;
+  opacity: 0.5;
+}
+
+.book-list-item:hover .book-list-item-title,
+.book-list-item:hover .book-list-item-button {
+  opacity: 1;
+}
+
+.book-list-item-img {
+  width: 270px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0 10px 10px 0px;
+  transition: 1s all ease-in-out;
+}
+.book-list-title {
+  margin-bottom: 20px;
+ 
+}
+
+.book-list-item-title {
+  background-color: #4c5b63;
+  border-radius: 10px;
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  top: 30%;
+  left: 28%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 1s all ease-in-out;
+}
+
+.book-list-item-button {
+  padding: 10px;
+  background-color: pink;
+  color: white;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;    
+  left: 28%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 1s all ease-in-out;
+}
+
+.container.active {
+  background-color: white;
+}
+
+
+.book-list-title.active {
+  color: black;
+}
+
+@media only screen and (max-width: 940px) {
+  .menu-container {
+    display: none;
+  }
+}
