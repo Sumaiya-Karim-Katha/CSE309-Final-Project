@@ -17,7 +17,7 @@ arrows.forEach((arrow, i) => {
     }
   });
 
-  console.log(Math.floor(window.innerWidth / 270));
+  console.log(Math.floor(window.innerWidth / 300));
 });
 
 // TOGGLE
