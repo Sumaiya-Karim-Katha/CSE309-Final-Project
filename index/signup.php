@@ -1,6 +1,6 @@
 <?php
 
-$link = mysqli_connect('localhost', 'root', '', 'webappdb');
+$link = mysqli_connect('localhost', 'root', '', 'cse309_final_project');
 
 $name_insert = $_POST["userNameSU"];
 $email_insert = $_POST["userEmailSU"];
