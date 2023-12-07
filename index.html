@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="index/index.css">
+    <title>Login Page</title>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form action="index/signup.php" method="POST">
+                <br><br>
+                <h1>Create Account</h1>
+                <br>
+                <span>Enter Your Credentials</span>
+                <br>
+                <input type="text" name="userNameSU" placeholder="Name">
+                <input type="email" name="userEmailSU" placeholder="Email">
+                <input type="password" name="userPassSU"  placeholder="Password">
+                <select>
+
+                    <option value="user">User</option>
+                </select>
+                <button name="signup" type="submit">Sign Up</button>
+            </form>
+        </div>
+        <br><br><br><br> 
+        <div class="form-container sign-in">
+            <form action="index/signin.php" method="POST">
+                <h1>Sign In</h1>
+                <br>
+                <span>Enter your Email and Password</span>
+                <br>
+                <input type="text" name="userName" placeholder="Email">
+                <input type="password" name="userPass" placeholder="Password">
+                <select name="role">
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select>
+                <a href="#">Forget Password?</a>
+                <button name="signin" type="submit">Sign In</button>
+            </form>
+            <br><br>
+        </div>
+    </div>
+</body>
+
+</html>
