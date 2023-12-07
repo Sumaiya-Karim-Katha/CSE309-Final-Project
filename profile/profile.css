@@ -294,9 +294,11 @@
     width: 100%;
     font-size: 18px;
   }
+
+  .menu-list-item a {
+    text-decoration: none; /* Removes the underline */
+}
   
-
-
 
   
   @media only screen and (max-width: 940px) {

@@ -1,8 +1,17 @@
 <?php
+session_start();
+$name = $_SESSION["usersession"];
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "cse309_final_project";
+
+$conn = new mysqli($servername, $username, $password, $database);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Handle image upload
-    $targetDirectory = "path/to/upload/directory/";
-    $targetFile = $targetDirectory . basename($_FILES["profileImage"]["name"]);
+    $targetFile = 'profile_images/' . basename($_FILES["profileImage"]["name"]);
 
     // Validate file type if needed
 
@@ -10,10 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Update the database with the new file name
         $newImageName = $_FILES["profileImage"]["name"];
         // Replace 'current_user_id' with the actual user ID
-        $updateQuery = "UPDATE users SET profile_picture = '$newImageName' WHERE user_id = 'current_user_id'";
-        
+        $updateQuery = "UPDATE `user` SET `userImage`='$newImageName' WHERE `userName`='$name'";
+
         // Execute the update query using your database connection ($conn)
-        // $conn->query($updateQuery);
+        $conn->query($updateQuery);
 
         // Redirect back to the profile page or display a success message
         header("Location: profile.php");
