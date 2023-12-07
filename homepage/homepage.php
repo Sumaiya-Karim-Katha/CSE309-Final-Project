@@ -7,10 +7,6 @@ $database = "cse309_final_project";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
-// Connection check
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 // Fetch books from the database
 $sqlClassics = "SELECT * FROM book WHERE Genre = 'classics'";
@@ -163,6 +159,8 @@ $conn->close();
                         <div class="book-list-item">
                             <img class="book-list-item-img" src="books-img/<?php echo $row['Image']; ?>" alt="<?php echo $row['Name']; ?>"/>
                             <span class="book-list-item-title"><?php echo $row['Name']; ?></span>
+                            
+                            
                             <button class="book-list-item-button">Learn Words</button>
                         </div>
                         <?php
