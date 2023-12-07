@@ -58,7 +58,7 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">
                 <span class="d-flex align-items-center"> <img src="SVG/book.svg" alt="">
-                  <span style="font-size: 20px; margin-left: 10px;">Manage Books</span>
+                  <span style="font-size: 20px; margin-left: 10px;"><b>Manage Books</b></span>
                 </span>
               </a>
             </li>

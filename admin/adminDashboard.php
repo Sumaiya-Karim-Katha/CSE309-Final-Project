@@ -77,7 +77,7 @@
               <a class="nav-link active" aria-current="page" href="#">
 
                 <span class="d-flex align-items-center"> <img src="SVG/home.svg" alt="">
-                  <span style="font-size: 20px; margin-left: 10px;">Dashboard</span>
+                  <span style="font-size: 20px; margin-left: 10px;"><b>Dashboard</b></span>
                 </span>
               </a>
             </li>
@@ -103,6 +103,7 @@
 
       <main class="col-md-9 ms-sm-auto col-lg-10 px-4 mt-4">
 
+        <!-- analytics columns -->
         <div style="background-color: #F0ECE5; margin: 10px; padding: 10px; border-radius: 10px; text-align: center;">
 
           <h2 class="container py-3">Analytics</h2>
@@ -111,11 +112,11 @@
             <!-- analytics -->
             <div class="col-lg-3 col-sm-12 mx-auto"
               style="background-color: #9EC8B9; border-radius: 10px; margin: 20px; padding: 10px;">
-              
+
               <h2 style="text-align: center;">Total Users <span><img src="SVG/user.svg" alt=""></span> </h2>
               <h3>3
                 <!-- <?php
-                echo '<h3>'.$totalBook.'</h3>';
+                echo '<h3>' . $totalBook . '</h3>';
                 ?>
               </h3> -->
             </div>
@@ -125,7 +126,7 @@
               <h2 style="text-align: center;">Total Books <span><img src="SVG/bookbig.svg" alt=""></h2>
               <h3>
                 <?php
-                echo '<h3>'.$totalBook.'</h3>';
+                echo '<h3>' . $totalBook . '</h3>';
                 ?>
               </h3>
             </div>
@@ -135,13 +136,14 @@
               <h2 style="text-align: center;">Total Words <span><img src="SVG/book-open.svg" alt=""></h2>
               <h3>
                 <?php
-                echo '<h3>'.$totalWord.'</h3>';
+                echo '<h3>' . $totalWord . '</h3>';
                 ?>
               </h3>
             </div>
           </div>
         </div>
         <hr>
+        <!-- user feedback table -->
         <div style="background-color: #F0ECE5; margin: 10px; padding: 10px; border-radius: 10px; text-align: center;">
 
           <h2 class="container py-3">User Feedback</h2>
@@ -158,23 +160,23 @@
               <?php
               $link = mysqli_connect('localhost', 'root', '', '2120117_cse309_ass_3');
 
-              if($link === false) {
-                die('Error establishing connection'.mysqli_connect_error());
+              if ($link === false) {
+                die('Error establishing connection' . mysqli_connect_error());
               }
 
               $query = "SELECT * FROM contactinfo";
               $result = $link->query($query);
 
-              if(!$result) {
-                die("SQL query failed ".$connection->error);
+              if (!$result) {
+                die("SQL query failed " . $connection->error);
               }
 
-              while($row = $result->fetch_assoc()) {
+              while ($row = $result->fetch_assoc()) {
 
                 echo "<tr>
-                                    <td>".$row["Name"]."</td>
-                                    <td>".$row["Email"]."</td>
-                                    <td>".$row["Feedback"]."</td>
+                                    <td>" . $row["Name"] . "</td>
+                                    <td>" . $row["Email"] . "</td>
+                                    <td>" . $row["Feedback"] . "</td>
                                     </tr>";
 
               }
