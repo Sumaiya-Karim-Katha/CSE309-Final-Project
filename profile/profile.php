@@ -34,7 +34,6 @@ $conn = new mysqli($servername, $username, $password, $database);
                 <li class="menu-list-item">Contact</li>
             </ul>
         </div>
-        <!-- search bar -->
 
         <!-- profile -->
         <div class="profile-container">
@@ -63,33 +62,45 @@ $conn = new mysqli($servername, $username, $password, $database);
             <img src="../homepage/images/lol.jpg" alt="John" style="width:100%; border-radius: 10px">
             <br> <br>
             <h1>John Doe</h1>
-            
-            <!-- <p>Harvard University</p> -->
-            <br>
 
+            <br>
+            <!-- Profile Picture Update Form -->
             <div style="background-color: #D5A8A9;">
-                <label>Image</label>
-                <input type="file" name="bookImage" class="form-control">
-                <p><button style="background-color: #dd87a5;">Update Profile Picture</button></p>
+                <form action="update_profile_picture.php" method="post" enctype="multipart/form-data">
+                    <label for="profileImage">Image</label>
+                    <input type="file" name="profileImage" id="profileImage" class="form-control" accept="image/*">
+                    <p><button type="submit" style="background-color: #dd87a5;">Update Profile Picture</button></p>
+                </form>
             </div>
             
-            <p><button style="border-radius: 0 0 10px 10px">Change password</button></p>
-          </div>
+            <!-- Change Password Form -->
+            <div>
+                <p><button onclick="showChangePasswordForm()" style="border-radius: 0 0 10px 10px">Change Password</button></p>
+                <div id="changePasswordForm" style="display: none; background-color: #D5A8A9;">
+                    <form action="change_password.php" method="post">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" name="newPassword" id="newPassword" class="form-control" required>
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" name="confirmPassword" id="confirmPassword" class="form-control" required>
+                        <p><button type="submit" style="background-color: #dd87a5;">Save Changes</button></p>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-          <br>
+        <br>
 
-          <div class="card" style="border-radius: 10px">
-            
+        <div class="card" style="border-radius: 10px">
             <h1>Favourite Books</h1>
             <p>Coming soon</p>
-            
-            
-          </div>
-
-
+        </div>
     </div>
 </div>
 
-
+<script>
+function showChangePasswordForm() {
+    document.getElementById("changePasswordForm").style.display = "block";
+}
+</script>
 </body>
 </html>
