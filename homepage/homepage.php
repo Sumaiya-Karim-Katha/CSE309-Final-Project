@@ -56,11 +56,30 @@ $conn->close();
             </div>
             <div class="menu-container">
                 <ul class="menu-list">
-                    <li class="menu-list-item active">Home</li>
-                    <li class="menu-list-item">Books</li>
-                    <li class="menu-list-item">Contact</li>
+                    <li class="menu-list-item"
+                        style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
+                        <a href="../homepage/homepage.php"
+                            style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
+                            Home
+                        </a>
+                    </li>
+                    <li class="menu-list-item"
+                        style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
+                        <a href="../homepage/homepage.php"
+                            style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
+                            All Books
+                        </a>
+                    </li>
+                    <li class="menu-list-item"
+                        style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
+                        <a href="../homepage/homepage.php"
+                            style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
+                            Contact
+                        </a>
+                    </li>
                 </ul>
             </div>
+
 
             <!-- profile -->
             <div class="profile-container">

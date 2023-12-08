@@ -37,11 +37,30 @@ $conn = new mysqli($servername, $username, $password, $database);
             </div>
             <div class="menu-container">
                 <ul class="menu-list">
-                    <li class="menu-list-item active"><a href="../homepage/homepage.php">Home</a></li>
-                    <li class="menu-list-item">Books</li>
-                    <li class="menu-list-item">Contact</li>
+                    <li class="menu-list-item"
+                        style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
+                        <a href="../homepage/homepage.php"
+                            style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
+                            Home
+                        </a>
+                    </li>
+                    <li class="menu-list-item"
+                        style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
+                        <a href="../homepage/homepage.php"
+                            style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
+                            All Books
+                        </a>
+                    </li>
+                    <li class="menu-list-item"
+                        style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
+                        <a href="../homepage/homepage.php"
+                            style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
+                            Contact
+                        </a>
+                    </li>
                 </ul>
             </div>
+
 
             <!-- profile -->
             <div class="profile-container">
@@ -70,33 +89,26 @@ $conn = new mysqli($servername, $username, $password, $database);
                 <img src="../homepage/images/lol.jpg" alt="John" style="width:100%; border-radius: 10px">
                 <br> <br>
                 <?php
-                
+
                 echo '<h1>' . $_SESSION["usersession"] . '</h1>';
 
                 ?>
 
                 <br>
-                <!-- Profile Picture Update Form -->
-                <div style="background-color: #D5A8A9;">
-                    <form action="update_profile_picture.php" method="post" enctype="multipart/form-data">
-                        <label for="profileImage">Image</label>
-                        <input type="file" name="profileImage" id="profileImage" class="form-control" accept="image/*">
-                        <p><button type="submit" style="background-color: #dd87a5;">Update Profile Picture</button></p>
-                    </form>
-                </div>
+
 
                 <!-- Change Password Form -->
                 <div>
                     <p><button onclick="showChangePasswordForm()" style="border-radius: 0 0 10px 10px">Change
                             Password</button></p>
-                    <div id="changePasswordForm" style="display: none; background-color: #D5A8A9;">
+                    <div id="changePasswordForm" style="display: none; background-color: #D5A8A9; padding: 10px;">
                         <form action="change_password.php" method="post">
-                            <label for="newPassword">New Password</label>
+                            <label for="newPassword">New Pass</label>
                             <input type="password" name="newPassword" id="newPassword" class="form-control" required>
-                            <label for="confirmPassword">Confirm Password</label>
+                            <label for="confirmPassword">Confirm Pass</label>
                             <input type="password" name="confirmPassword" id="confirmPassword" class="form-control"
                                 required>
-                            <p><button type="submit" style="background-color: #dd87a5;">Save Changes</button></p>
+                            <p><button type="submit" style="background-color: #dd87a5">Save Changes</button></p>
                         </form>
                     </div>
                 </div>

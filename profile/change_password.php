@@ -1,5 +1,15 @@
 <?php
 
+session_start();
+$name = $_SESSION["usersession"];
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "cse309_final_project";
+
+$conn = new mysqli($servername, $username, $password, $database);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newPassword = $_POST["newPassword"];
     $confirmPassword = $_POST["confirmPassword"];
@@ -10,15 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Update the database with the new password
-    $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-    // Replace 'current_user_id' with the actual user ID
-    $updateQuery = "UPDATE users SET password = '$hashedPassword' WHERE user_id = 'current_user_id'";
+ 
+    $updateQuery = "UPDATE user SET userPass = '$newPassword' WHERE userName = '$name'";
 
-    // Execute the update query using your database connection ($conn)
-    // $conn->query($updateQuery);
+    $conn->query($updateQuery);
 
-    // Redirect back to the profile page or display a success message
     header("Location: profile.php");
     exit();
 }
