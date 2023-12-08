@@ -60,7 +60,7 @@ $conn->close();
                     </li>
                     <li class="menu-list-item"
                         style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
-                        <a href="../homepage/homepage.php"
+                        <a href="../allBooks/allBooks.php"
                             style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
                             All Books
                         </a>
