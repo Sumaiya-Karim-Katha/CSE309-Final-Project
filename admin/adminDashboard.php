@@ -17,7 +17,6 @@
   $totalBook = mysqli_num_rows($bookCount);
   $totalWord = mysqli_num_rows($wordCount);
 
-  // close connection to db
   mysqli_close($link);
   ?>
 </div>
