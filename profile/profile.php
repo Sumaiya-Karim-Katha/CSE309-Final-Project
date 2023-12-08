@@ -61,7 +61,6 @@ $conn = new mysqli($servername, $username, $password, $database);
                 </ul>
             </div>
 
-
             <!-- profile -->
             <div class="profile-container">
                 <img class="profile-picture" src="../homepage/images/p1.jpg" alt="" />

@@ -117,7 +117,10 @@ $conn->close();
                                 <span class="book-list-item-title">
                                     <?php echo $row['Name']; ?>
                                 </span>
-                                <button class="book-list-item-button">Learn Words</button>
+                                <form action="../flashcard/flashcard.php" method="POST">
+                                    <input type="hidden" name="selectedisbn" value="<?php echo $row['Isbn']; ?>">
+                                    <button type="submit" class="book-list-item-button">Learn Words</button>
+                                </form>
                             </div>
                             <?php
                         }
@@ -141,7 +144,10 @@ $conn->close();
                                 <span class="book-list-item-title">
                                     <?php echo $row['Name']; ?>
                                 </span>
-                                <button class="book-list-item-button">Learn Words</button>
+                                <form action="../flashcard/flashcard.php" method="POST">
+                                    <input type="hidden" name="selectedisbn" value="<?php echo $row['Isbn']; ?>">
+                                    <button type="submit" class="book-list-item-button">Learn Words</button>
+                                </form>
                             </div>
                             <?php
                         }
@@ -165,7 +171,10 @@ $conn->close();
                                 <span class="book-list-item-title">
                                     <?php echo $row['Name']; ?>
                                 </span>
-                                <button class="book-list-item-button">Learn Words</button>
+                                <form action="../flashcard/flashcard.php" method="POST">
+                                    <input type="hidden" name="selectedisbn" value="<?php echo $row['Isbn']; ?>">
+                                    <button type="submit" class="book-list-item-button">Learn Words</button>
+                                </form>
                             </div>
                             <?php
                         }
@@ -189,7 +198,10 @@ $conn->close();
                                 <span class="book-list-item-title">
                                     <?php echo $row['Name']; ?>
                                 </span>
-                                <button class="book-list-item-button">Learn Words</button>
+                                <form action="../flashcard/flashcard.php" method="POST">
+                                    <input type="hidden" name="selectedisbn" value="<?php echo $row['Isbn']; ?>">
+                                    <button type="submit" class="book-list-item-button">Learn Words</button>
+                                </form>
                             </div>
                             <?php
                         }
