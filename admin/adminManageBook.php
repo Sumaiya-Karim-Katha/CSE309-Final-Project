@@ -162,9 +162,8 @@
                     <label class="form-label mt-3">Words</label>
                     <input type="text" name="bookWord" class="form-control">
 
-                    <!-- <label class="form-label mt-3">Meaning</label>
-                    <input type="text" name="wordMeaning" class="form-control"> -->
-
+                    <label class="form-label mt-3">Meaning</label>
+                    <input type="text" name="wordMeaning" class="form-control">
 
                     <div class="row-cols-2 text-center mt-4">
                       <input class="btn btn-lg btn-success" type="submit" name="addWord" value="Add">
