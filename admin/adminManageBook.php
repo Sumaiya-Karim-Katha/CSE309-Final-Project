@@ -32,7 +32,7 @@
 
 <body>
 
-  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-1 shadow">
+  <header class="navbar navbar-dark sticky-top flex-md-nowrap p-1 shadow" style="background-color: #6b808b;">
 
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Vocable Admin</a>
 
@@ -45,7 +45,8 @@
   <div class="container-fluid">
     <div class="row">
 
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse mt-3">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse mt-3"
+        style="background-color: #6b808b;">
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
