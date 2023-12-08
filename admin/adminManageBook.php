@@ -32,7 +32,7 @@
 
 <body>
 
-  <header class="navbar navbar-dark sticky-top flex-md-nowrap p-1 shadow" style="background-color: #6b808b;">
+  <header class="navbar navbar-dark sticky-top flex-md-nowrap p-1 shadow" style="background-color: #9bb8cd;">
 
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Vocable Admin</a>
 
@@ -43,10 +43,10 @@
   </header>
 
   <div class="container-fluid">
-    <div class="row">
+    <div class="row mx-auto">
 
       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse mt-3"
-        style="background-color: #6b808b;">
+        style="background-color: #9bb8cd;">
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
@@ -77,14 +77,14 @@
       </nav>
 
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-4">
-        <div style="background-color: #F0ECE5; margin: 10px; padding: 10px; border-radius: 10px; text-align: center;">
+        <div style="background-color: #c5e8ef; margin: 10px; padding: 10px; border-radius: 10px; text-align: center;">
 
           <h2>Add/Delete Books</h2>
 
-          <div class="row">
+          <div class="row mx-auto">
             <!-- Add books box -->
             <div class="col-lg-3 col-md-12 mx-auto"
-              style="background-color: #9EC8B9; border-radius: 10px; margin: 20px; padding: 10px;">
+              style="background-color: #89b9ad; border-radius: 10px; margin: 20px; padding: 10px;">
 
               <h2 style="text-align: center;">Add Books</h2>
 
@@ -133,7 +133,7 @@
 
             <!-- Add Words Box -->
             <div class="col-lg-3 col-md-12 mx-auto"
-              style="background-color: #9EC8B9; border-radius: 10px; margin: 20px; padding: 10px;">
+              style="background-color: #89b9ad; border-radius: 10px; margin: 20px; padding: 10px;">
               <h2 style="text-align: center;">Add Words</h2>
 
               <div class="form-floating mb-3 px-5">
@@ -176,7 +176,7 @@
 
             <!-- Delete Book Box -->
             <div class="col-lg-3 col-md-12 mx-auto"
-              style="background-color: #9EC8B9; border-radius: 10px; margin: 20px; padding: 10px;">
+              style="background-color: #89b9ad; border-radius: 10px; margin: 20px; padding: 10px;">
               <h2 style="text-align: center;">Delete Books</h2>
 
               <div class="form-floating mb-3 px-5">
