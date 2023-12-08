@@ -4,7 +4,7 @@
   $link = mysqli_connect('localhost', 'root', '', 'cse309_final_project');
 
   // sql query
-  $queryCountUser = "";
+  $queryCountUser = "SELECT * FROM `user`";
   $queryCountBook = "SELECT * FROM `book`";
   $queryCountWord = "SELECT * FROM `word`";
 
@@ -114,10 +114,10 @@
 
               <h2 style="text-align: center;">Total Users <span><img src="SVG/user.svg" alt=""></span> </h2>
               <h3>
-                <!-- <?php
+                <?php
                 echo '<h3>' . $totalUser . '</h3>';
                 ?>
-              </h3> -->
+              </h3>
             </div>
 
             <div class="col-lg-3 col-sm-12 mx-auto"
