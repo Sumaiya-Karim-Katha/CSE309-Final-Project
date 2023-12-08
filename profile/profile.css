@@ -89,7 +89,8 @@ body {
 
 .dropdown-menu a:hover {
   background-color: pink;
-  color: #fff;
+  /* border-radius: 10px; */
+  color: #fff; /* Text color on hover */
 }
 
 .menu-list-item a {
@@ -101,7 +102,7 @@ body {
 
 .menu-list-item a:hover {
   background-color: pink;
-  color: #fff;
+  color: #fff; 
 }
 
 .profile-picture {
@@ -134,8 +135,8 @@ body {
 .search-bar {
   width: 100%;
   padding: 8px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Transparent white border */
+  border-radius: 20px; /* Adjust the border-radius as needed */
   background-color: transparent;
   color: white;
   font-family: "Sen", sans-serif;
@@ -197,8 +198,8 @@ body {
 .book-list {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
-  transition: transform 1s ease-in-out;
+  flex-wrap: nowrap; /* Ensure that items do not wrap to the next line */
+  transition: transform 1s ease-in-out; /* Move the transition property here */
 }
 
 .book-list-item {
@@ -262,11 +263,12 @@ body {
   font-size: 120px;
   position: absolute;
   top: 50%;
-  right: 20px;
+  right: 20px; /* Adjust this value as needed */
   transform: translateY(-50%);
   color: lightgray;
   opacity: 0.5;
   cursor: pointer;
+  /* Add any additional styling you prefer for the arrows */
 }
 
 .container.active {
@@ -277,8 +279,29 @@ body {
   color: black;
 }
 
-.arrow {
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #b06e85;
+  text-align: center;
   cursor: pointer;
+  width: 100%;
+  font-size: 18px;
 }
 
 @media only screen and (max-width: 940px) {
