@@ -58,7 +58,7 @@ $conn->close();
                     </li>
                     <li class="menu-list-item"
                         style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
-                        <a href="../contact/contact.php"
+                        <a href="../contact/contact.html"
                             style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
                             Contact
                         </a>
