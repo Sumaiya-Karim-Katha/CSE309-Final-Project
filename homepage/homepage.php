@@ -1,5 +1,5 @@
 <?php
-// Connection with database
+
 session_start();
 $name = $_SESSION["usersession"];
 
@@ -10,7 +10,7 @@ $database = "cse309_final_project";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
-// Fetch books from the database
+
 $sqlClassics = "SELECT * FROM book WHERE Genre = 'classics'";
 $resultClassics = $conn->query($sqlClassics);
 
@@ -23,7 +23,6 @@ $resultMystery = $conn->query($sqlMystery);
 $sqlRomance = "SELECT * FROM book WHERE Genre = 'romance'";
 $resultRomance = $conn->query($sqlRomance);
 
-// Close the database connection after using all the results
 $conn->close();
 ?>
 
