@@ -138,7 +138,7 @@ $conn->close();
                         while ($row = mysqli_fetch_assoc($resultFantasy)) {
                             ?>
                             <div class="book-list-item">
-                                <img class="book-list-item-img" src="books-img/<?php echo $row['Image']; ?>"
+                                <img class="book-list-item-img" src="../admin/PHP/BookImages/<?php echo $row['Image']; ?>"
                                     alt="<?php echo $row['Name']; ?>" />
                                 <span class="book-list-item-title">
                                     <?php echo $row['Name']; ?>
@@ -165,7 +165,7 @@ $conn->close();
                         while ($row = mysqli_fetch_assoc($resultMystery)) {
                             ?>
                             <div class="book-list-item">
-                                <img class="book-list-item-img" src="books-img/<?php echo $row['Image']; ?>"
+                                <img class="book-list-item-img" src="../admin/PHP/BookImages/<?php echo $row['Image']; ?>"
                                     alt="<?php echo $row['Name']; ?>" />
                                 <span class="book-list-item-title">
                                     <?php echo $row['Name']; ?>
@@ -192,7 +192,7 @@ $conn->close();
                         while ($row = mysqli_fetch_assoc($resultRomance)) {
                             ?>
                             <div class="book-list-item">
-                                <img class="book-list-item-img" src="books-img/<?php echo $row['Image']; ?>"
+                                <img class="book-list-item-img" src="../admin/PHP/BookImages/<?php echo $row['Image']; ?>"
                                     alt="<?php echo $row['Name']; ?>" />
                                 <span class="book-list-item-title">
                                     <?php echo $row['Name']; ?>
