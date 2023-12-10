@@ -90,7 +90,7 @@ body {
 .dropdown-menu a:hover {
   background-color: pink;
   /* border-radius: 10px; */
-  color: #fff; /* Text color on hover */
+  color: #fff; 
 }
 
 .menu-list-item a {
@@ -135,8 +135,8 @@ body {
 .search-bar {
   width: 100%;
   padding: 8px;
-  border: 2px solid rgba(255, 255, 255, 0.5); /* Transparent white border */
-  border-radius: 20px; /* Adjust the border-radius as needed */
+  border: 2px solid rgba(255, 255, 255, 0.5); 
+  border-radius: 20px; 
   background-color: transparent;
   color: white;
   font-family: "Sen", sans-serif;
@@ -198,8 +198,8 @@ body {
 .book-list {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap; /* Ensure that items do not wrap to the next line */
-  transition: transform 1s ease-in-out; /* Move the transition property here */
+  flex-wrap: nowrap; 
+  transition: transform 1s ease-in-out; 
 }
 
 .book-list-item {
@@ -263,12 +263,12 @@ body {
   font-size: 120px;
   position: absolute;
   top: 50%;
-  right: 20px; /* Adjust this value as needed */
+  right: 20px; 
   transform: translateY(-50%);
   color: lightgray;
   opacity: 0.5;
   cursor: pointer;
-  /* Add any additional styling you prefer for the arrows */
+  
 }
 
 .container.active {
