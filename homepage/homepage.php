@@ -23,11 +23,6 @@ $resultMystery = $conn->query($sqlMystery);
 $sqlRomance = "SELECT * FROM book WHERE Genre = 'romance'";
 $resultRomance = $conn->query($sqlRomance);
 
-$sqlPP = "SELECT userImage FROM user WHERE userName = '$name'";
-// $sqlPP = "SELECT * FROM user WHERE userName = '$name'";
-$resultPP = $conn->query($sqlPP);
-$PP = mysqli_fetch_field($resultPP);
-
 // Close the database connection after using all the results
 $conn->close();
 ?>
@@ -58,21 +53,21 @@ $conn->close();
                 <ul class="menu-list">
                     <li class="menu-list-item"
                         style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
-                        <a href="../homepage/homepage.php"
+                        <a href="#"
                             style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
                             Home
                         </a>
                     </li>
                     <li class="menu-list-item"
                         style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
-                        <a href="../homepage/homepage.php"
+                        <a href="../allBooks/allBooks.php"
                             style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
                             All Books
                         </a>
                     </li>
                     <li class="menu-list-item"
                         style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
-                        <a href="../homepage/homepage.php"
+                        <a href="../contact/contact.html"
                             style="display: block; padding: 10px; text-decoration: none; color: white; border-radius: 5px;">
                             Contact
                         </a>
@@ -84,21 +79,14 @@ $conn->close();
             <!-- profile -->
             <div class="profile-container">
                 <div class="profile-text-container">
-
                     <?php
-
-
-
-                    echo '<h4> <span class="profile-text">Welcome ' . $_SESSION["usersession"] . ' <i class="fas fa-caret-down" style="cursor: pointer;">
+                    echo '<h4> <span class="profile-text">Welcome ' . $_SESSION["usersession"] .
+                        ' <i class="fas fa-caret-down" style="cursor: pointer;">
                     <div class="dropdown-menu">
                         <a href="../profile/profile.php">My Profile</a>
                         <a href="../index.html">Sign Out</a>
-                    </div>
-                </i></span></h4>';
-
+                    </div></i></span></h4>';
                     ?>
-
-
                 </div>
             </div>
         </div>
@@ -111,10 +99,8 @@ $conn->close();
     <div class="container">
         <div class="content-container">
             <div class="featured-content"
-                style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #6b808b), url(images/Elevate\ Your\ Reading\ Experience\,\ One\ Word\ at\ a\ Time!.png); background-size: cover;">
-                <!-- <h1>The ABC Murders</h1>
-                <p style="margin-bottom: 10px">Agatha Christie</p>
-                <button class="featured-button">Start Learning Words</button> -->
+                style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #6b808b), 
+                url(images/Elevate\ Your\ Reading\ Experience\,\ One\ Word\ at\ a\ Time!.png); background-size: cover;">
             </div>
 
             <!-- Classics container -->
@@ -131,7 +117,10 @@ $conn->close();
                                 <span class="book-list-item-title">
                                     <?php echo $row['Name']; ?>
                                 </span>
-                                <button class="book-list-item-button">Learn Words</button>
+                                <form action="../flashcard/flashcard.php" method="POST">
+                                    <input type="hidden" name="selectedisbn" value="<?php echo $row['Isbn']; ?>">
+                                    <button type="submit" class="book-list-item-button">Learn Words</button>
+                                </form>
                             </div>
                             <?php
                         }
@@ -155,7 +144,10 @@ $conn->close();
                                 <span class="book-list-item-title">
                                     <?php echo $row['Name']; ?>
                                 </span>
-                                <button class="book-list-item-button">Learn Words</button>
+                                <form action="../flashcard/flashcard.php" method="POST">
+                                    <input type="hidden" name="selectedisbn" value="<?php echo $row['Isbn']; ?>">
+                                    <button type="submit" class="book-list-item-button">Learn Words</button>
+                                </form>
                             </div>
                             <?php
                         }
@@ -179,7 +171,10 @@ $conn->close();
                                 <span class="book-list-item-title">
                                     <?php echo $row['Name']; ?>
                                 </span>
-                                <button class="book-list-item-button">Learn Words</button>
+                                <form action="../flashcard/flashcard.php" method="POST">
+                                    <input type="hidden" name="selectedisbn" value="<?php echo $row['Isbn']; ?>">
+                                    <button type="submit" class="book-list-item-button">Learn Words</button>
+                                </form>
                             </div>
                             <?php
                         }
@@ -203,7 +198,10 @@ $conn->close();
                                 <span class="book-list-item-title">
                                     <?php echo $row['Name']; ?>
                                 </span>
-                                <button class="book-list-item-button">Learn Words</button>
+                                <form action="../flashcard/flashcard.php" method="POST">
+                                    <input type="hidden" name="selectedisbn" value="<?php echo $row['Isbn']; ?>">
+                                    <button type="submit" class="book-list-item-button">Learn Words</button>
+                                </form>
                             </div>
                             <?php
                         }

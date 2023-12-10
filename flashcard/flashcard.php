@@ -27,6 +27,9 @@
             font-weight: bold;
             color: #fff;
             background-color: #9BB8CD;
+            text-align:center; 
+            padding-left:30px;
+            padding-right:30px;
         }
     </style>
 </head>
@@ -48,27 +51,17 @@
                                 $queryFetchBook = "SELECT * FROM `word` WHERE `bookIsbn` = '$isbn'";
 
                                 $result = mysqli_query($link, $queryFetchBook);
-                                 
+
                                 while ($row = mysqli_fetch_array($result)):
                                     ;
                                     $word = $row[2];
+                                    $meaning = $row[3];
                                     echo
-                                        '<div class="swiper-slide">Word: ' . $word . '<br><br>Meaning:' ?>
-                                    <?php
-                                    $url = 'https://api.dictionaryapi.dev/api/v2/entries/en/' . $row[2];
-                                    // $content = file_get_contents($url);
-                                    // $decode = json_decode($content);
-                                    // $meaning = $decode->word->meanings->definition;
-                                    ?>
-
-                                    <?php echo '</div>';
+                                        '<div class="swiper-slide">Word: ' . $word . '<br><br>Meaning: ' . $meaning . '.</div>';
                                 endwhile;
                                 ?>
 
                             </div>
-                            <?php
-                            echo $url;
-                            ?>
                         </div>
 
                     </div>
