@@ -7,7 +7,7 @@
 
 body {
   background-color: #3d455e;
-  background: linear-gradient(to right, #e2e2e2, #4a80ad);
+  background: linear-gradient(to right, #e2e2e2, #89b9ad);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,7 +45,7 @@ body {
 }
 
 .container button {
-  background-color: #4a80ad;
+  background-color: #89b9ad;
   color: #fff;
   font-size: 12px;
   padding: 10px 45px;
